@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
+#ifdef Q_OS_WIN
+#include <windows.h> // for Sleep
+#endif
+
 
 namespace Ui {
 class MainWindow;
@@ -18,7 +22,6 @@ public:
     ~MainWindow();
     void ToggleState();
     void SendData(const QByteArray &data);
-
 
 public slots:
     void Connect();

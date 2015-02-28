@@ -54,8 +54,8 @@
    <string>Arduino Process</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>Icon/Arduino.png</normaloff>Icon/Arduino.png</iconset>
+   <iconset resource="resources.qrc">
+    <normaloff>:/images/icon/Arduino</normaloff>:/images/icon/Arduino</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
@@ -167,6 +167,8 @@ Connect HC-06 GND to Arduino Digital Pin GND</string>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images/icon">
+        <file alias="Arduino">Icon/Arduino.png</file>
+        <file alias="Delete">Icon/mail_delete.ico</file>
+        <file alias="Bluetooth">Icon/Martz90-Circle-Addon2-Bluetooth.ico</file>
+        <file alias="Refresh">Icon/view_refresh.ico</file>
+    </qresource>
+</RCC>

@@ -22,5 +22,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     arduinoprocess.ui
 
-RESOURCES +=
+RESOURCES += \
+    resources.qrc
 

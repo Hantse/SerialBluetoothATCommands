@@ -4,6 +4,9 @@
 #include <QtSerialPort/QSerialPortInfo>
 #include <QMessageBox>
 #include "arduinoprocess.h"
+#include <QtCore/QTime>
+#include <QtDebug>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -87,11 +90,11 @@ void MainWindow::Connect()
     SerialUse->setBaudRate(ui->cbBaudRate->itemData(ui->cbBaudRate->currentIndex()).toInt());
     SerialUse->setParity(QSerialPort::UnknownParity);
     SerialUse->setDataBits(QSerialPort::Data8);
+    SerialUse->setStopBits(QSerialPort::OneStop);
+    SerialUse->setFlowControl(QSerialPort::NoFlowControl);
 
     if(SerialUse->open(QIODevice::ReadWrite)){
         ToggleState();
-        QString Command = "AT";
-        SendData(Command.toLatin1());
     }else {
         QMessageBox::critical(this, tr("Error"), SerialUse->errorString());
     }
@@ -143,9 +146,20 @@ void MainWindow::SendData(const QByteArray &data)
 
 void MainWindow::ReceiveData()
 {
-    QByteArray data = SerialUse->readAll();
-    QString Result(data);
-    ui->taReception->append(Result);
+    if(SerialUse->isReadable()){
+
+        QString Result(SerialUse->readAll());
+        qDebug() << Result;
+
+        if(Result == "OKsetname"){
+            ui->taReception->append("New name : " + ui->txtName->text());
+        }else if(Result == "OKsetPIN"){
+            ui->taReception->append("New pin : " + ui->txtPin->text());
+        }else{}
+
+    }else{
+        QMessageBox::critical(this, tr("Error"), SerialUse->errorString());
+    }
 }
 
 void MainWindow::ToggleState(){
