@@ -27,7 +27,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Patrick/Downloads/Martz90-Circle-Addon2-Bluetooth.ico</normaloff>C:/Users/Patrick/Downloads/Martz90-Circle-Addon2-Bluetooth.ico</iconset>
+    <normaloff>Icon/Martz90-Circle-Addon2-Bluetooth.ico</normaloff>Icon/Martz90-Circle-Addon2-Bluetooth.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="label">
@@ -318,7 +318,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>C:/Users/Patrick/Downloads/view_refresh.ico</normaloff>C:/Users/Patrick/Downloads/view_refresh.ico</iconset>
+      <normaloff>Icon/view_refresh.ico</normaloff>Icon/view_refresh.ico</iconset>
     </property>
    </widget>
   </widget>
@@ -349,7 +349,7 @@
   <action name="actionExit">
    <property name="icon">
     <iconset>
-     <normaloff>C:/Users/Patrick/Downloads/mail_delete.ico</normaloff>C:/Users/Patrick/Downloads/mail_delete.ico</iconset>
+     <normaloff>Icon/mail_delete.ico</normaloff>Icon/mail_delete.ico</iconset>
    </property>
    <property name="text">
     <string>Exit</string>
@@ -358,7 +358,7 @@
   <action name="actionArduino">
    <property name="icon">
     <iconset>
-     <normaloff>C:/Users/Patrick/Downloads/Arduino.png</normaloff>C:/Users/Patrick/Downloads/Arduino.png</iconset>
+     <normaloff>Icon/Arduino.png</normaloff>Icon/Arduino.png</iconset>
    </property>
    <property name="text">
     <string>Arduino</string>

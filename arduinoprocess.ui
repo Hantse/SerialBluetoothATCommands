@@ -55,7 +55,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>C:/Users/Patrick/Downloads/Arduino.png</normaloff>C:/Users/Patrick/Downloads/Arduino.png</iconset>
+    <normaloff>Icon/Arduino.png</normaloff>Icon/Arduino.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
