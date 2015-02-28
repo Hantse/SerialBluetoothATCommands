@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ArduinoProcess</class>
+ <widget class="QWizard" name="ArduinoProcess">
+  <property name="windowModality">
+   <enum>Qt::WindowModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>640</height>
+   </rect>
+  </property>
+  <property name="palette">
+   <palette>
+    <active>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>255</red>
+        <green>85</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </active>
+    <inactive>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </inactive>
+    <disabled>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>120</red>
+        <green>120</green>
+        <blue>120</blue>
+       </color>
+      </brush>
+     </colorrole>
+    </disabled>
+   </palette>
+  </property>
+  <property name="windowTitle">
+   <string>Arduino Process</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/Patrick/Downloads/Arduino.png</normaloff>C:/Users/Patrick/Downloads/Arduino.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <widget class="QWizardPage" name="wizardPage1">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>441</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Upload this content to your Arduino board. </string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>411</width>
+      <height>441</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+    <property name="plainText">
+     <string>#include &lt;SoftwareSerial.h&gt;
+SoftwareSerial mySerial(4, 2); // RX, TX
+
+String command = &quot;&quot;; // Stores response of the HC-06 Bluetooth device
+
+
+void setup() {
+  // Open serial communications:
+  Serial.begin(9600);
+  Serial.println(&quot;Type AT commands!&quot;);
+  
+  // The HC-06 defaults to 9600 according to the datasheet.
+  mySerial.begin(9600);
+}
+
+void loop() {
+  // Read device output if available.
+  if (mySerial.available()) {
+    while(mySerial.available()) { // While there is more to be read, keep reading.
+      command += (char)mySerial.read();
+    }
+    
+    Serial.println(command);
+    command = &quot;&quot;; // No repeats
+  }
+  
+  // Read user input if available.
+  if (Serial.available()){
+    delay(10); // The delay is necessary to get this working!
+    mySerial.write(Serial.read());
+  }
+}</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWizardPage" name="wizardPage2">
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>441</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Connect your HC-06 or other bluetooth module.</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>411</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Connect HC-06 TX to Arduino Digital Pin 2
+Connect HC-06 RX to Arduino Digital Pin 4
+Connect HC-06 VCC to Arduino Digital Pin 5V
+Connect HC-06 GND to Arduino Digital Pin GND</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
