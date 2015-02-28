@@ -95,6 +95,7 @@ void MainWindow::Connect()
 
     if(SerialUse->open(QIODevice::ReadWrite)){
         ToggleState();
+        ui->statusBar->showMessage("Connected On Serial " + (ComPorts[ui->cbPortsCom->currentIndex()].portName()));
     }else {
         QMessageBox::critical(this, tr("Error"), SerialUse->errorString());
     }
@@ -105,6 +106,7 @@ void MainWindow::Disconnect()
     SerialUse->close();
     ui->taReception->clear();
     ToggleState();
+    ui->statusBar->showMessage("Disconnected On Serial " + (ComPorts[ui->cbPortsCom->currentIndex()].portName()));
     QMessageBox::information(this, tr("Successfull !"), "Successfull disconnected !");
 }
 
@@ -167,7 +169,7 @@ void MainWindow::ToggleState(){
     ui->btConnect->setEnabled(!ui->btConnect->isEnabled());
     ui->cbBaudRate->setEnabled(!ui->cbBaudRate->isEnabled());
     ui->cbPortsCom->setEnabled(!ui->cbPortsCom->isEnabled());
-    ui->btRefresh->setEnabled(!ui->btRefresh->isEnabled());
+    ui->btRefresh->setEnabled(!ui->btRefresh->isEnabled());   
 }
 
 void MainWindow::OpenArduinoProcess(){

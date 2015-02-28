@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>563</width>
-    <height>345</height>
+    <height>365</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>563</width>
-    <height>345</height>
+    <height>365</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>563</width>
-    <height>354</height>
+    <height>365</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -161,9 +161,6 @@
       <string>Change Pin</string>
      </property>
      <widget class="QLineEdit" name="txtPin">
-      <property name="enabled">
-       <bool>false</bool>
-      </property>
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -250,7 +247,7 @@
       <rect>
        <x>390</x>
        <y>210</y>
-       <width>131</width>
+       <width>141</width>
        <height>23</height>
       </rect>
      </property>
@@ -355,6 +352,7 @@
    <addaction name="menuFile"/>
    <addaction name="menuArduino_Code"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionExit">
    <property name="icon">
     <iconset resource="resources.qrc">
