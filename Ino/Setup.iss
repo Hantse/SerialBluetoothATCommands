@@ -4,14 +4,14 @@
 #define MyAppName "Serial Bluetooth HC06"
 #define MyAppVersion "1.0"
 #define MyAppPublisher "Ice-Artefact"
-#define MyAppURL "patrickgrasseels.azurewebsites.net"
+#define MyAppURL "https://github.com/Hantse/SerialBluetoothATCommands"
 #define MyAppExeName "SerialBluetoothATCommands.exe"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{C31DE375-46EB-40E1-AC5D-CE94C0BA00C7}
+AppId={{349E6ADD-D49A-47B7-9254-175C6C59E6BF}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -22,7 +22,7 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
-OutputDir=Q:\C++\SerialBluetoothATCommands\Ino
+OutputDir=Q:\C++\SerialBluetoothATCommands\Setup\Win32
 OutputBaseFilename=setup
 SetupIconFile=C:\Users\Patrick\Downloads\Martz90-Circle-Addon2-Bluetooth.ico
 Compression=lzma
@@ -36,7 +36,19 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Release\release\SerialBluetoothATCommands.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\SerialBluetoothATCommands.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\icudt53.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\icuin53.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\icuuc53.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\libgcc_s_dw2-1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\libstdc++-6.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\libwinpthread-1.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\Qt5Core.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\Qt5Cored.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\Qt5Gui.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\Qt5Guid.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\Qt5SerialPortd.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\Patrick\Documents\build-SerialBluetoothATCommands-Desktop_Qt_5_4_1_MinGW_32bit-Debug\debug\Qt5Widgetsd.dll"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
