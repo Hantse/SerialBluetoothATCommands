@@ -34,17 +34,23 @@ public slots:
 
     void ClearName();
     void ClearPin();
+    void DefaultBaudRate();
 
     void GetVersion();
 
     void ReceiveData();
     void OpenArduinoProcess();
 
+    void SendCustomCommand();
+    void RetriveCommand();
+
 private:
     Ui::MainWindow *ui;
     QList<QSerialPortInfo> ComPorts;
     QSerialPortInfo SelectdPort;
     QSerialPort* SerialUse;
+    QList<QString> Commands;
+    int CommandIndex = 0;
 
 };
 

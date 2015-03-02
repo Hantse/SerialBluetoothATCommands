@@ -57,6 +57,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QObject::connect(ui->btClearPin, SIGNAL(clicked()), this, SLOT(ClearPin()));
     QObject::connect(ui->btSetBaudRate, SIGNAL(clicked()), this, SLOT(SetBaudRate()));
     QObject::connect(ui->btVersion, SIGNAL(clicked()), this, SLOT(GetVersion()));
+    QObject::connect(ui->btBaudRateDefault, SIGNAL(clicked()), this, SLOT(DefaultBaudRate()));
+    QObject::connect(ui->btSendCustomCommand, SIGNAL(clicked()), this, SLOT(SendCustomCommand()));
 
     ui->txtPin->setValidator(new QIntValidator(0, 9999, this));
 }
@@ -73,7 +75,7 @@ void MainWindow::Refresh()
         // Set all ports in Combobox
         foreach(SelectdPort, ComPorts)
         {
-            ui->cbPortsCom->addItem(SelectdPort.portName() + " " + SelectdPort.manufacturer() + "(" + SelectdPort.isBusy() + ")");
+            ui->cbPortsCom->addItem(SelectdPort.portName() + " " + SelectdPort.manufacturer() + "(" + SelectdPort.description() + ")");
         }
 
         ui->btConnect->setEnabled(true);
@@ -95,6 +97,7 @@ void MainWindow::Connect()
 
     if(SerialUse->open(QIODevice::ReadWrite)){
         ToggleState();
+        ui->gbBaudRate->setEnabled(true);
         ui->statusBar->showMessage("Connected On Serial " + (ComPorts[ui->cbPortsCom->currentIndex()].portName()));
     }else {
         QMessageBox::critical(this, tr("Error"), SerialUse->errorString());
@@ -135,6 +138,10 @@ void MainWindow::ClearPin(){
     ui->txtPin->clear();
 }
 
+void MainWindow::DefaultBaudRate(){
+    ui->cbBaudRateSerial->setCurrentIndex(3);
+}
+
 void MainWindow::GetVersion(){
     QString Command = "AT+VERSION";
     SendData(Command.toLatin1());
@@ -159,6 +166,8 @@ void MainWindow::ReceiveData()
             ui->taReception->append("New pin : " + ui->txtPin->text());
         }else{}
 
+        ui->textBrowser->append(Result);
+
     }else{
         QMessageBox::critical(this, tr("Error"), SerialUse->errorString());
     }
@@ -167,9 +176,18 @@ void MainWindow::ReceiveData()
 void MainWindow::ToggleState(){
     ui->gbMainContent->setEnabled(!ui->gbMainContent->isEnabled());
     ui->btConnect->setEnabled(!ui->btConnect->isEnabled());
+    ui->btDisconnect->setEnabled(!ui->btConnect->isEnabled());
     ui->cbBaudRate->setEnabled(!ui->cbBaudRate->isEnabled());
     ui->cbPortsCom->setEnabled(!ui->cbPortsCom->isEnabled());
-    ui->btRefresh->setEnabled(!ui->btRefresh->isEnabled());   
+    ui->btRefresh->setEnabled(!ui->btRefresh->isEnabled());
+}
+
+void MainWindow::SendCustomCommand(){
+    SendData(ui->txtCustomCommand->text().toLatin1());
+}
+
+void MainWindow::RetriveCommand(){
+
 }
 
 void MainWindow::OpenArduinoProcess(){
